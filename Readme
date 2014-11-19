@@ -1,3 +1,5 @@
 All kinds of project around EMW3162 will be here.
 
 Still having problems with some resolving of the WiFi mxChipWNet compiled with KEIL uVision against GNU. Still need to fix some unimplemented temp undefine fixes
+
+Btw stm32f2-1wire-read-only is external svn copy
