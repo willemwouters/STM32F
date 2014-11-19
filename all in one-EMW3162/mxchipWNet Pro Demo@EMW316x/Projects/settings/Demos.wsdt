@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<Workspace>
+  <ConfigDictionary>
+    
+  <CurrentConfigs><Project>TCP_IP_Stack/EMW3162_Debug</Project><Project>WiFi_Link/EMW3161_Debug</Project><Project>WPS_EasyLink/EMW3162_Debug</Project></CurrentConfigs><CurrentProj>WiFi_Link</CurrentProj><OverviewSelected>0</OverviewSelected></ConfigDictionary>
+  <Desktop>
+    <Static>
+      <Build>
+        
+        
+        
+        
+      <PreferedWindows><Position>3</Position><ScreenPosX>0</ScreenPosX><ScreenPosY>0</ScreenPosY><Windows><Window><Factory>Debug-Log</Factory></Window></Windows></PreferedWindows><ColumnWidth0>20</ColumnWidth0><ColumnWidth1>663</ColumnWidth1><ColumnWidth2>176</ColumnWidth2><ColumnWidth3>44</ColumnWidth3></Build>
+      <Workspace>
+        <ColumnWidths>
+          
+          
+          
+          
+        <Column0>201</Column0><Column1>27</Column1><Column2>27</Column2><Column3>0</Column3></ColumnWidths>
+      </Workspace>
+      <DRIVER_CUSTOM_SFR>
+        <PreferedWindows>
+          
+          
+          
+          
+        <Position>3</Position><ScreenPosX>0</ScreenPosX><ScreenPosY>0</ScreenPosY><Windows/></PreferedWindows>
+        <col-names>
+          
+          
+          
+          
+          
+          
+        <item>Access</item><item>Address</item><item>Name</item><item>Size</item><item>Zone</item><item>_I0</item></col-names>
+        <col-widths>
+          
+          
+          
+          
+          
+          
+        <item>120</item><item>150</item><item>150</item><item>50</item><item>120</item><item>20</item></col-widths>
+      </DRIVER_CUSTOM_SFR>
+      <TerminalIO/>
+    <Debug-Log><PreferedWindows><Position>3</Position><ScreenPosX>0</ScreenPosX><ScreenPosY>0</ScreenPosY><Windows><Window><Factory>Build</Factory></Window></Windows></PreferedWindows><ColumnWidth0>19</ColumnWidth0><ColumnWidth1>1862</ColumnWidth1></Debug-Log><Select-Ambiguous-Definitions><ColumnWidth0>664</ColumnWidth0><ColumnWidth1>94</ColumnWidth1><ColumnWidth2>1138</ColumnWidth2></Select-Ambiguous-Definitions></Static>
+    <Windows>
+      
+      
+    <Wnd0>
+        <Tabs>
+          <Tab>
+            <Identity>TabID-27919-9070</Identity>
+            <TabName>Workspace</TabName>
+            <Factory>Workspace</Factory>
+            <Session>
+              
+            <NodeDict><ExpandedNode>&lt;ws&gt;</ExpandedNode><ExpandedNode>&lt;ws&gt;/TCP_IP_Stack</ExpandedNode><ExpandedNode>&lt;ws&gt;/WiFi_Link</ExpandedNode><ExpandedNode>&lt;ws&gt;/WiFi_Link/Application</ExpandedNode><ExpandedNode>&lt;ws&gt;/WiFi_Link/platform</ExpandedNode><ExpandedNode>&lt;ws&gt;/WiFi_Link/startup</ExpandedNode><ExpandedNode>TCP_IP_Stack</ExpandedNode><ExpandedNode>TCP_IP_Stack/Application</ExpandedNode><ExpandedNode>TCP_IP_Stack/HAL</ExpandedNode><ExpandedNode>TCP_IP_Stack/HTML</ExpandedNode><ExpandedNode>TCP_IP_Stack/Library</ExpandedNode><ExpandedNode>TCP_IP_Stack/platform</ExpandedNode><ExpandedNode>WPS_EasyLink</ExpandedNode><ExpandedNode>WPS_EasyLink/Application</ExpandedNode><ExpandedNode>WPS_EasyLink/HAL</ExpandedNode><ExpandedNode>WPS_EasyLink/Library</ExpandedNode><ExpandedNode>WPS_EasyLink/platform</ExpandedNode><ExpandedNode>WPS_EasyLink/startup</ExpandedNode><ExpandedNode>WiFi_Link</ExpandedNode><ExpandedNode>WiFi_Link/Application</ExpandedNode><ExpandedNode>WiFi_Link/Library</ExpandedNode><ExpandedNode>WiFi_Link/platform</ExpandedNode></NodeDict></Session>
+          </Tab>
+        </Tabs>
+        
+      <SelectedTab>0</SelectedTab></Wnd0><Wnd2>
+        <Tabs>
+          
+        <Tab><Identity>TabID-21095-23947</Identity><TabName>Debug Log</TabName><Factory>Debug-Log</Factory><Session/></Tab><Tab><Identity>TabID-4726-24578</Identity><TabName>Build</TabName><Factory>Build</Factory><Session/></Tab><Tab><Identity>TabID-12067-31400</Identity><TabName>Ambiguous Definitions</TabName><Factory>Select-Ambiguous-Definitions</Factory><Session/></Tab></Tabs>
+        
+      <SelectedTab>1</SelectedTab></Wnd2></Windows>
+    <Editor>
+      
+      
+      
+      
+    <Pane><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\Demos\Demo1_WiFi_Link\main.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>209</YPos2><SelStart2>4886</SelStart2><SelEnd2>4886</SelEnd2></Tab><ActiveTab>0</ActiveTab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\Demos\Demo2_TCP_IP_Stack\TCP_Server_Test.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>0</YPos2><SelStart2>1525</SelStart2><SelEnd2>1525</SelEnd2></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\Demos\Demo2_TCP_IP_Stack\main.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>93</YPos2><SelStart2>1393</SelStart2><SelEnd2>1393</SelEnd2></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\HAL\platform.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>0</YPos2><SelStart2>225</SelStart2><SelEnd2>251</SelEnd2></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\Library\mico_config.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>15</YPos2><SelStart2>0</SelStart2><SelEnd2>1195</SelEnd2></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\Library\mico_rtos.h</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>297</YPos2><SelStart2>10589</SelStart2><SelEnd2>10589</SelEnd2></Tab></Pane><ActivePane>0</ActivePane><Sizes><Pane><X>1000000</X><Y>1000000</Y></Pane></Sizes><SplitMode>1</SplitMode></Editor>
+    <Positions>
+      
+      
+      
+      
+      
+    <Top><Row0><Sizes><Toolbar-029428c0><key>iaridepm.enu1</key></Toolbar-029428c0></Sizes></Row0></Top><Left><Row0><Sizes><Wnd0><Rect><Top>-2</Top><Left>-2</Left><Bottom>632</Bottom><Right>275</Right><x>-2</x><y>-2</y><xscreen>345</xscreen><yscreen>198</yscreen><sizeHorzCX>239583</sizeHorzCX><sizeHorzCY>241169</sizeHorzCY><sizeVertCX>192361</sizeVertCX><sizeVertCY>772229</sizeVertCY></Rect></Wnd0></Sizes></Row0></Left><Right><Row0><Sizes/></Row0></Right><Bottom><Row0><Sizes><Wnd2><Rect><Top>-2</Top><Left>-2</Left><Bottom>144</Bottom><Right>1442</Right><x>-2</x><y>-2</y><xscreen>1444</xscreen><yscreen>146</yscreen><sizeHorzCX>1002778</sizeHorzCX><sizeHorzCY>177832</sizeHorzCY><sizeVertCX>239583</sizeVertCX><sizeVertCY>241169</sizeVertCY></Rect></Wnd2></Sizes></Row0></Bottom><Float><Sizes/></Float></Positions>
+  </Desktop>
+</Workspace>
+
+

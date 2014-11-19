@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<ProjectWorkspace xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="project_mpw.xsd">
+
+  <SchemaVersion>1.0</SchemaVersion>
+
+  <Header>### uVision Project, (C) Keil Software</Header>
+
+  <WorkspaceName>WorkSpace</WorkspaceName>
+
+  <project>
+    <PathAndName>.\Demo1_WiFi_Link\RVMDK\WiFi_Link.uvproj</PathAndName>
+    <NodeIsActive>1</NodeIsActive>
+  </project>
+
+  <project>
+    <PathAndName>.\Demo2_TCP_UDP_ECHO\RVMDK\TCP_UDP_ECHO.uvproj</PathAndName>
+  </project>
+
+  <project>
+    <PathAndName>.\Demo3_WPS_EasyLink\RVMDK\WPS_EasyLink.uvproj</PathAndName>
+  </project>
+
+  <project>
+    <PathAndName>.\Demo4_Webserver_OTA\RVMDK\Webserver_OTA.uvproj</PathAndName>
+  </project>
+
+  <project>
+    <PathAndName>.\Demo5_mDNS_bonjour\RVMDK\mDNS_bonjour.uvproj</PathAndName>
+  </project>
+
+  <project>
+    <PathAndName>.\Demo6_SSL_https\RVMDK\SSL_https.uvproj</PathAndName>
+  </project>
+
+  <project>
+    <PathAndName>.\Demox_WirelessCamera\RVMDK\WirelessCamera.uvproj</PathAndName>
+  </project>
+
+  <project>
+    <PathAndName>.\Demox_mxchipWNet_HA\RVMDK\mxchipWNet_HA.uvproj</PathAndName>
+  </project>
+
+</ProjectWorkspace>

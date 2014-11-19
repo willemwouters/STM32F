@@ -1,0 +1,150 @@
+[Stack]
+FillEnabled=0
+OverflowWarningsEnabled=1
+WarningThreshold=90
+SpWarningsEnabled=1
+WarnLogOnly=1
+UseTrigger=1
+TriggerName=main
+LimitSize=0
+ByteLimit=50
+[DebugChecksum]
+Checksum=476809464
+[Exceptions]
+StopOnUncaught=_ 0
+StopOnThrow=_ 0
+[CallStack]
+ShowArgs=0
+[Disassembly]
+MixedMode=1
+[JLinkDriver]
+CStepIntDis=_ 0
+[SWOTraceHWSettings]
+OverrideDefaultClocks=0
+CpuClock=72000000
+ClockAutoDetect=0
+ClockWanted=2000000
+JtagSpeed=2000000
+Prescaler=36
+TimeStampPrescIndex=0
+TimeStampPrescData=0
+PcSampCYCTAP=1
+PcSampPOSTCNT=15
+PcSampIndex=0
+DataLogMode=0
+ITMportsEnable=0
+ITMportsTermIO=0
+ITMportsLogFile=0
+ITMlogFile=$PROJ_DIR$\ITM.log
+[struct_types]
+Fmt0=struct sockaddr_t-s_ip	4	0
+[SfrWindow]
+Show=1 1
+Sort=4 0
+[CallStackLog]
+Enabled=0
+[DriverProfiling]
+Enabled=0
+Mode=3
+Graph=0
+Symbiont=0
+Exclusions=
+[Trace2]
+Enabled=0
+ShowSource=0
+[SWOTraceWindow]
+PcSampling=0
+InterruptLogs=0
+ForcedTimeStamps=0
+EventCPI=0
+EventEXC=0
+EventFOLD=0
+EventLSU=0
+EventSLEEP=0
+[PowerLog]
+LogEnabled=0
+GraphEnabled=0
+ShowTimeLog=1
+ShowTimeSum=0
+Title0=I0
+Symbol0=0 4 1
+LiveEnabled=0
+LiveFile=PowerLogLive.log
+[DataLog]
+LogEnabled=0
+SumEnabled=0
+GraphEnabled=0
+ShowTimeLog=1
+ShowTimeSum=1
+[EventLog]
+LogEnabled=0
+SumEnabled=0
+GraphEnabled=0
+ShowTimeLog=1
+ShowTimeSum=1
+Title0=Ch0
+Symbol0=0 4 1
+Title1=Ch1
+Symbol1=0 4 1
+Title2=Ch2
+Symbol2=0 4 1
+Title3=Ch3
+Symbol3=0 4 1
+SumSortOrder=0
+[InterruptLog]
+LogEnabled=0
+SumEnabled=0
+GraphEnabled=0
+ShowTimeLog=1
+ShowTimeSum=1
+SumSortOrder=0
+[Log file]
+LoggingEnabled=_ 0
+LogFile=_ ""
+Category=_ 0
+[TermIOLog]
+LoggingEnabled=_ 0
+LogFile=_ ""
+[PowerProbe]
+Frequency=10000
+Probe0=I0
+ProbeSetup0=2 1 1 2 0 0
+[Disassemble mode]
+mode=0
+[Breakpoints2]
+Bp0=_ 0 "EMUL_CODE" "" 0 0 1 "" 0 "" 0
+Bp1=_ 0 "EMUL_CODE" "" 0 0 1 "" 0 "" 0
+Bp2=_ 0 "EMUL_CODE" "" 0 0 1 "" 0 "" 0
+Bp3=_ 0 "EMUL_CODE" "" 0 0 1 "" 0 "" 0
+Bp4=_ 0 "EMUL_CODE" "" 0 0 1 "" 0 "" 0
+Bp5=_ 0 "EMUL_CODE" "" 0 0 1 "" 0 "" 0
+Bp6=_ 0 "EMUL_CODE" "" 0 0 1 "" 0 "" 0
+Bp7=_ 0 "EMUL_CODE" "" 0 0 1 "" 0 "" 0
+Bp8=_ 0 "EMUL_CODE" "" 0 0 1 "" 0 "" 0
+Bp9=_ 0 "EMUL_CODE" "" 0 0 1 "" 0 "" 0
+Bp10=_ 0 "EMUL_CODE" "" 0 0 1 "" 0 "" 0
+Bp11=_ 0 "EMUL_CODE" "" 0 0 1 "" 0 "" 0
+Bp12=_ 0 "EMUL_CODE" "" 0 0 1 "" 0 "" 0
+Bp13=_ 0 "EMUL_CODE" "" 0 0 1 "" 0 "" 0
+Bp14=_ 0 "EMUL_CODE" "" 0 0 1 "" 0 "" 0
+Bp15=_ 0 "EMUL_CODE" "" 0 0 1 "" 0 "" 0
+Bp16=_ 0 "EMUL_CODE" "" 0 0 1 "" 0 "" 0
+Bp17=_ 0 "EMUL_CODE" "" 0 0 1 "" 0 "" 0
+Bp18=_ 0 "EMUL_CODE" "" 0 0 1 "" 0 "" 0
+Bp19=_ 0 "EMUL_CODE" "" 0 0 1 "" 0 "" 0
+Bp20=_ 0 "EMUL_CODE" "" 0 0 1 "" 0 "" 0
+Bp21=_ 0 "EMUL_CODE" "" 0 0 1 "" 0 "" 0
+Bp22=_ 0 "EMUL_CODE" "" 0 0 1 "" 0 "" 0
+Bp23=_ 0 "EMUL_CODE" "" 0 0 1 "" 0 "" 0
+Bp24=_ 0 "EMUL_CODE" "" 0 0 1 "" 0 "" 0
+Bp25=_ 0 "EMUL_CODE" "" 0 0 1 "" 0 "" 0
+Bp26=_ 0 "EMUL_CODE" "" 0 0 1 "" 0 "" 0
+Bp27=_ 0 "EMUL_CODE" "" 0 0 1 "" 0 "" 0
+Bp28=_ 0 "EMUL_CODE" "" 0 0 1 "" 0 "" 0
+Bp29=_ 0 "EMUL_CODE" "" 0 0 1 "" 0 "" 0
+Bp30=_ 0 "EMUL_CODE" "" 0 0 1 "" 0 "" 0
+Count=31
+[Aliases]
+A0=_ "C:\Users\bobo\Documents\WICED\Wiced-SDK-2.3.0\WICED-SDK\Wiced\Platform\common\ARM_Cortex_M3\STM32F2xx\stm32f2xx_platform-yhb.c" ""
+Count=1
+SuppressDialog=0

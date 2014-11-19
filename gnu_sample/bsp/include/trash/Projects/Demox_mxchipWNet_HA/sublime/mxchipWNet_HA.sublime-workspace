@@ -1,0 +1,874 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"memc",
+				"memcmp(const void *, const void *, size_t)	int"
+			],
+			[
+				"k",
+				"key_len	int"
+			],
+			[
+				"clou",
+				"cloud_connected	unsigned int"
+			],
+			[
+				"soc",
+				"socket_fd	int"
+			],
+			[
+				"UAP",
+				"UAP_START	enum <anonymous>"
+			],
+			[
+				"FD",
+				"FD_SET	macro"
+			],
+			[
+				"mxch",
+				"mxchipTick()	void"
+			],
+			[
+				"ma",
+				"mac	unsigned char [18]"
+			],
+			[
+				"s",
+				"status	current_state_t"
+			],
+			[
+				"STAT",
+				"Station	WiFi_Interface"
+			],
+			[
+				"uap_",
+				"uap_key	char [32]"
+			],
+			[
+				"def",
+				"device_info	mxchipWNet_HA_st  *"
+			],
+			[
+				"MS",
+				"MS_TIMER	vu32"
+			],
+			[
+				"st",
+				"status	current_state_t"
+			],
+			[
+				"ps",
+				"ps_enable()	void"
+			],
+			[
+				"running",
+				"running_state	unsigned int"
+			],
+			[
+				"de",
+				"device_info	mxchipWNet_HA_st *"
+			],
+			[
+				"wN",
+				"wNetConfig	network_InitTypeDef_st"
+			],
+			[
+				"mxchipWN",
+				"mxchipWNet_HA_Init	mxchipWNet_HA_st"
+			],
+			[
+				"mem",
+				"memcpy(void *, const void *, size_t)	void *"
+			],
+			[
+				"pa",
+				"pairIndex	u8"
+			],
+			[
+				"se",
+				"selfKillCount	int32u"
+			],
+			[
+				"int",
+				"int32u	typedef"
+			],
+			[
+				"int1",
+				"int16u	typedef"
+			],
+			[
+				"cu",
+				"currentlifeTime	int32u"
+			],
+			[
+				"re",
+				"recordInfoAddress	RecordInfo *"
+			],
+			[
+				"flas",
+				"flashBuffer	u8 [24]"
+			],
+			[
+				"in",
+				"int32u	typedef"
+			],
+			[
+				"__no",
+				"__NO_INIT__	macro"
+			],
+			[
+				"BA",
+				"BATTERY_VOLTAGE	VoltageType"
+			],
+			[
+				"Log",
+				"Log_NeedUpdate	"
+			],
+			[
+				"up",
+				"updateLog	UpdateLog *"
+			],
+			[
+				"ty",
+				"typedef type name	"
+			],
+			[
+				"inc",
+				"include \"header\"	"
+			],
+			[
+				"DMA_IT_H",
+				"DMA_IT_HT	"
+			],
+			[
+				"USART_Get",
+				"USART_GetFlagStatus(USART_TypeDef *USARTx, uint16_t USART_FLAG)	FlagStatus"
+			],
+			[
+				"uint32",
+				"uint32_t	"
+			],
+			[
+				"uint",
+				"uint16_t	"
+			],
+			[
+				"STM_EVA",
+				"STM_EVAL_LEDInit(Led_TypeDef Led)	void"
+			],
+			[
+				"LCD_Dis",
+				"LCD_DisplayStringLine(uint16_t Line, uint8_t *ptr)	void"
+			],
+			[
+				"ST",
+				"STM_EVAL_LEDOn(Led_TypeDef Led)	void"
+			],
+			[
+				"STM",
+				"STM_EVAL_LEDOn(Led_TypeDef Led)	void"
+			],
+			[
+				"sen",
+				"send_data(void *data, uint32_t datalen)	uint32_t"
+			],
+			[
+				"swit",
+				"switch(expression){\n}	"
+			],
+			[
+				"for",
+				"for	For Loop"
+			],
+			[
+				"au",
+				"autoSendLastMsTick"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/Users/William/Develop/mxchipWNet Demo@EMW316x/STM32F2xx_StdPeriph_Driver/src/stm32f2xx_pwr.c",
+			"settings":
+			{
+				"buffer_size": 22496,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/Users/william/Develop/Clang_lib/Include/core_cm3.h",
+			"settings":
+			{
+				"buffer_size": 98205,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/Users/William/Develop/mxchipWNet Demo@EMW316x/Library/mxchipWNET.h",
+			"settings":
+			{
+				"buffer_size": 13929,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/William/Develop/mxchipWNet Demo@EMW316x/Demos/Demox_mxchipWNet_HA/mxchipWNet_HA.h",
+			"settings":
+			{
+				"buffer_size": 3365,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/William/Develop/mxchipWNet Demo@EMW316x/Demos/Demox_mxchipWNet_HA/mxchipWNet_HA.c",
+			"settings":
+			{
+				"buffer_size": 21747,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/william/Develop/mxchipWNet Demo@EMW316x/HAL/platform.h",
+			"settings":
+			{
+				"buffer_size": 974,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/Users/William/Develop/mxchipWNet Demo@EMW316x/HAL/hal_misc.c",
+			"settings":
+			{
+				"buffer_size": 1921,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				"",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Upgrade Package"
+			],
+			[
+				"v",
+				"View: Toggle Side Bar"
+			],
+			[
+				"Cscope:Look up symbol",
+				"Cscope: Look up symbol"
+			],
+			[
+				":",
+				"View: Toggle Tabs"
+			],
+			[
+				":q",
+				"Set Syntax: SQL"
+			],
+			[
+				"Package Control: install		",
+				"Package Control: Install Package"
+			],
+			[
+				"Snippet: ",
+				"Snippet: Lorem ipsum"
+			]
+		],
+		"width": 449.0
+	},
+	"console":
+	{
+		"height": 125.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/william/Develop/mxchipWNet Demo@EMW316x/STM32F2xx_StdPeriph_Driver/inc/system_stm32f2xx.h",
+		"/Users/William/Develop/mxchipWNet Demo@EMW316x/Projects/Demox_mxchipWNet_HA/sublime/mxchipWNet_HA.sublime-project",
+		"/Users/William/Develop/mxchipWNet Demo@EMW316x/Demos/Demox_mxchipWNet_HA/main.c",
+		"/Users/William/Library/Application Support/Sublime Text 2/Packages/SublimeClang/SublimeClang.sublime-settings",
+		"/Users/William/Library/Application Support/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
+		"/Users/william/Develop/mxchipWNet Demo@EMW316x/STM32F2xx_StdPeriph_Driver/inc/stm32f2xx.h",
+		"/Users/william/Develop/Clang_lib/ARMCC/include/stdio.h",
+		"/Users/William/Library/Application Support/Sublime Text 2/Packages/User/JSON.sublime-settings",
+		"/Users/William/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/Users/William/Library/Application Support/Sublime Text 2/Packages/User/SublimeClang.sublime-settings",
+		"/Users/william/Develop/mxchipWNet-HA@EMW316x/Source/main.c",
+		"/Users/william/Develop/mxchipWNet-HA@EMW316x/HAL/platform.h",
+		"/Users/william/Develop/mxchipWNet-HA@EMW316x/Library/mxchipWNET.h",
+		"/Users/william/Develop/mxchipWNet-HA@EMW316x/Library/mxchipWNet_TypeDef.h",
+		"/Users/william/Develop/mxchipWNet-HA@EMW316x/HAL/flash_if.h",
+		"/Users/william/Develop/mxchipWNet-HA@EMW316x/Source/mxchipWNet_HA.c",
+		"/Users/william/Develop/mxchipWNet-HA@EMW316x/Source/mxchipWNet_HA.h",
+		"/Users/william/Develop/mxchipWNet-HA@EMW316x/HAL/HAL_EMW3162.h",
+		"/Users/william/Develop/mxchipWNet-HA@EMW316x/Source/user_misc.c",
+		"/Users/william/Develop/mxchipWNet-HA@EMW316x/HAL/uart.c",
+		"/Users/william/Develop/mxchipWNet-HA@EMW316x/HAL/hal_misc.c",
+		"/Users/william/Develop/mxchipWNet-HA@EMW316x/Project/sublime/ARMCC/include/string.h",
+		"/Users/william/Develop/mxchipWNet-HA@EMW316x/Source/user_misc.h",
+		"/Users/william/Develop/mxchipWNet-HA@EMW316x/Source/stm32f2xx_conf.h",
+		"/Users/william/Develop/mxchipWNet-HA@EMW316x/STM32F2xx_StdPeriph_Driver/inc/stm32f2xx.h",
+		"/Users/william/Develop/mxchipWNet-HA@EMW316x/STM32F2xx_StdPeriph_Driver/inc/misc.h",
+		"/Users/william/Develop/mxchipWNet-HA@EMW316x/Source/stm32f2xx_it.c",
+		"/Users/william/Develop/mxchipWNet-HA@EMW316x/Project/sublime/mxchipWNet_HA.sublime-project",
+		"/Users/william/Develop/mxchipWNet-HA@EMW316x/STM32F2xx_StdPeriph_Driver/inc/stm32f2xx_usart.h",
+		"/Users/william/Develop/mxchipWNet-HA@EMW316x/STM32F2xx_StdPeriph_Driver/src/misc.c",
+		"/Users/william/Develop/mxchipWNet-HA@EMW316x/HAL/HAL_EMW3161.h",
+		"/Users/william/Develop/mxchipWNet-HA@EMW316x/HAL/stm32f2xx_conf.h",
+		"/Users/william/Develop/mxchipWNet-HA@EMW316x/Source/misc.c",
+		"/Users/william/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/Users/william/Library/Application Support/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
+		"/Users/william/Develop/mxchipWNet-HA@EMW316x/HAL/platform.c",
+		"/Users/william/Library/Application Support/Sublime Text 2/Packages/SublimeClang/SublimeClang.sublime-settings",
+		"/Users/william/Library/Application Support/Sublime Text 2/Packages/User/C.sublime-settings",
+		"/Users/william/Library/Application Support/Sublime Text 2/Packages/Alignment/Default (OSX).sublime-keymap",
+		"/Users/william/Library/Application Support/Sublime Text 2/Packages/User/Base File.sublime-settings",
+		"/Users/william/Library/Application Support/Sublime Text 2/Packages/SublimeClang/clang/include/stdio.h",
+		"/Users/william/Develop/mxchipWNet-HA@EMW316x/Project/sublime/ARMCC/include/stdlib.h",
+		"/Users/william/Library/Application Support/Sublime Text 2/Packages/SublimeClang/clang/include/string.h",
+		"/Users/william/Library/Application Support/Sublime Text 2/Packages/SublimeClang/clang/include/stdint.h",
+		"/Users/william/Develop/mxchipWNet-HA@EMW316x/Project/sublime/ARMCC/include/stdio.h",
+		"/Users/william/Develop/mxchipWNet-HA@EMW316x/Project/sublime/ARMCC/include/ctype.h",
+		"/Users/william/Develop/mxchipWNet-HA@EMW316x/STM32F2xx_StdPeriph_Driver/inc/stm32f2xx_flash.h",
+		"/Users/william/Develop/mxchipWNet-HA@EMW316x/Project/sublime/ARMCC/include/stdint.h",
+		"/Users/william/Library/Application Support/Sublime Text 2/Packages/User/SublimeClang.sublime-settings",
+		"/Users/william/Develop/mxchipWNet-HA@EMW316x/STM32F2xx_StdPeriph_Driver/src/stm32f2xx_i2c.c",
+		"/Users/william/Library/Application Support/Sublime Text 2/Packages/SublimeClang/README.creole",
+		"/Users/william/Develop/mxchipWNet-HA@EMW316x/STM32F2xx_StdPeriph_Driver/src/stm32f2xx_usart.c",
+		"/Users/william/Library/Application Support/Sublime Text 2/Packages/SublimeClang/Default.sublime-keymap",
+		"/Users/william/Develop/mxchipWNet-HA@EMW316x/Source/main.h",
+		"/Users/william/Develop/E-DICE/simplemac/demos/sample/solar-system.c",
+		"/Users/William/Develop/E-Dice/hal/micro/cortexm3/compiler/iar.h",
+		"/Users/william/Develop/E-DICE/simplemac/demos/sample/transmit.h",
+		"/Users/william/Develop/E-DICE/simplemac/demos/sample/transmit.c",
+		"/Users/william/Develop/E-DICE/simplemac/demos/sample/lis3dh_driver.h",
+		"/Users/william/Develop/E-DICE/hal/micro/cortexm3/clocks.c",
+		"/Users/william/Develop/E-DICE/hal/micro/cortexm3/uart.c",
+		"/Users/william/Develop/E-DICE/hal/micro/cortexm3/led.c",
+		"/Users/william/Develop/E-DICE/hal/micro/cortexm3/micro-common.h",
+		"/Users/william/Develop/E-DICE/hal/micro/cortexm3/board.c",
+		"/Users/william/Develop/E-DICE/simplemac/demos/sample/chip_id.c",
+		"/Users/william/Develop/E-DICE/simplemac/demos/sample/I2C_Driver.c",
+		"/Users/william/Develop/E-DICE/simplemac/demos/sample/lis3dh_driver.c",
+		"/Users/william/Develop/E-DICE/simplemac/include/phy-library.h",
+		"/Users/william/Develop/E-DICE/simplemac/demos/复件 sample/solar-system.c",
+		"/Users/william/Develop/E-DICE/hal/micro/cortexm3/system-timer.c",
+		"/Users/william/Develop/E-DICE/hal/micro/cortexm3/stm32w108/board.h",
+		"/Users/william/Develop/E-DICE/simplemac/demos/复件 sample/transmit.c",
+		"/Users/William/Develop/E-Dice/hal/micro/generic/compiler/platform-common.h",
+		"/Users/william/Develop/E-DICE/simplemac/demos/sample/life_time.c",
+		"/Volumes/C/Program Files/IAR Systems/Embedded Workbench 5.4/arm/inc/intrinsics.h",
+		"/Users/william/Develop/E-DICE/simplemac/demos/sample/life_time.h",
+		"/Users/william/Develop/E-DICE/hal/micro/cortexm3/sleep.c",
+		"/Users/William/Develop/E-Dice/hal/micro/cortexm3/flash.h",
+		"/Users/william/Develop/E-DICE/simplemac/demos/sample/lift_time.h",
+		"/Users/william/Develop/E-DICE/hal/micro/cortexm3/stm32w108/memmap.h",
+		"/Users/William/Develop/E-Dice/hal/micro/cortexm3/memmap-fat.h",
+		"/Users/william/Develop/E-DICE/simplemac/demos/sample/EWARMv5/STM32W108xB_PLANET/List/sample_planet.map",
+		"/Users/william/Develop/E-DICE/hal/micro/cortexm3/mfg-token.c",
+		"/Users/William/Develop/E-Dice/hal/micro/cortexm3/mfg-token.h",
+		"/Users/William/Develop/E-Dice/hal/micro/cortexm3/token-manufacturing.h",
+		"/Users/William/Develop/E-Dice/hal/micro/cortexm3/memmap.h",
+		"/Users/william/Develop/E-DICE/hal/token-phy.h",
+		"/Users/William/Develop/E-Dice/hal/micro/cortexm3/uart.c",
+		"/Users/William/Develop/E-Dice/hal/micro/cortexm3/uart.h",
+		"/Users/william/Develop/E-DICE/simplemac/demos/sample/chip_id.h",
+		"/Users/william/Develop/E-DICE/hal/micro/cortexm3/stm32w108/iar-cfg.icf",
+		"/Users/william/Develop/E-DICE/hal/micro/cortexm3/bootloader/fib-bootloader.h",
+		"/Users/william/Develop/E-DICE/hal/micro/cortexm3/flash.h",
+		"/Users/william/Develop/E-DICE/hal/micro/micro-common.h",
+		"/Users/william/Develop/E-DICE/hal/micro/cortexm3/flash.c",
+		"/Users/william/Develop/E-DICE/hal/micro/cortexm3/adc.h",
+		"/Users/william/Develop/E-DICE/hal/micro/cortexm3/adc.c",
+		"/Users/william/Develop/E-DICE/hal/micro/cortexm3/micro-common-internal.c",
+		"/Users/William/Develop/E-Dice/hal/micro/adc.h",
+		"/Users/william/Develop/E-DICE/simplemac/demos/sample/sublime/DICE.sublime-project",
+		"/Users/william/Develop/dice/v3.9.3/simplemac/demos/sample/transmit.h",
+		"/Users/william/Develop/dice/v3.9.3/simplemac/demos/sample/solar-system.c",
+		"/Users/William/Develop/LIS3DH_SimpleMAC_mems_v3.9/hal/micro/cortexm3/button.c",
+		"/Volumes/C/Program Files/IAR Systems/Embedded Workbench 5.4/arm/inc/yvals.h",
+		"/Users/William/Develop/LIS3DH_SimpleMAC_mems_v3.9/simplemac/demos/sample/I2C_Driver.h",
+		"/Users/William/Develop/LIS3DH_SimpleMAC_mems_v3.9/simplemac/demos/sample/lis3dh_driver.h",
+		"/Users/William/Develop/LIS3DH_SimpleMAC_mems_v3.9/simplemac/demos/sample/transmit.c",
+		"/Users/William/Develop/LIS3DH_SimpleMAC_mems_v3.9/simplemac/demos/sample/lis3dh_driver.c",
+		"/Users/William/Develop/LIS3DH_SimpleMAC_mems_v3.9/simplemac/demos/sample/solar-system.c",
+		"/Users/William/Develop/LIS3DH_SimpleMAC_mems_v3.9/hal/micro/cortexm3/compiler/iar.h",
+		"/Users/William/Develop/LIS3DH_SimpleMAC_mems_v3.9/simplemac/demos/sample/sublime/DICE.sublime-project",
+		"/Users/William/Develop/EMW3280BOOT/EMW_BOOT/MDK-ARM/startup_stm32f2xx.s",
+		"/Users/William/Develop/EMW3280BOOT/Libraries/CMSIS/CM3/DeviceSupport/ST/STM32F2xx/system_stm32f2xx.c",
+		"/Users/William/Develop/EMW3280BOOT/Libraries/STM32F2xx_StdPeriph_Driver/src/stm32f2xx_flash.c",
+		"/Users/William/Develop/EMW3280BOOT/EMW_BOOT/inc/chip_id.h",
+		"/Users/William/Develop/EMW3280BOOT/EMW_BOOT/src/chip_id.c",
+		"/Users/William/Develop/LIS3DH_SimpleMAC_mems_v3.9/simplemac/demos/sample/sublime/EMW3280_BOOT.sublime-project",
+		"/Users/William/Develop/EMW3280BOOT/EMW_BOOT/src/main.c",
+		"/Users/William/Develop/EMW3280BOOT/EMW_BOOT/src/update.c",
+		"/Users/William/Develop/EMW3280BOOT/EMW_BOOT/src/Retarget.c",
+		"/Users/William/Develop/EMW3280BOOT/Libraries/STM32F2xx_StdPeriph_Driver/inc/stm32f2xx_flash.h",
+		"/usr/include/stdio.h",
+		"/Users/William/Develop/EMW3280BOOT/EMW_BOOT/sublime/EMW3280_BOOT.sublime-project",
+		"/Volumes/C/Keil/ARM/RV31/INC/stdio.h",
+		"/Volumes/C/Keil/ARM/RV31/INC/stdlib.h",
+		"/Users/William/Develop/EMW3280BOOT/Libraries/STM32F2xx_StdPeriph_Driver/inc/stm32f2xx_rcc.h",
+		"/Users/William/Develop/EMW3280BOOT/EMW_BOOT/src/flash_if.c",
+		"/Users/William/Develop/EMW3280BOOT/EMW_BOOT/inc/menu.h"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			"<open folders>",
+			"/Users/william/Develop/E-DICE",
+			"",
+			"<open folders>",
+			"/Volumes/C/develop/MDV-STM32-407/EMB_STM32_407_wifi_lib_V2.0.0/",
+			"/Volumes/C/develop/MDV-STM32-407/EMB_STM32_407_wifi_lib_V2.0.0/Project/复件 Data_Send&Recv",
+			"/Volumes/C/develop/MDV-STM32-407/EMB_STM32_407_wifi_lib_V2.0.0/Project/STM32F4xx_StdPeriph_Examples"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"mxEnable",
+			"ip_cmd_process",
+			"fast",
+			"ota_process",
+			"ota",
+			"delay_reload",
+			"need_reload",
+			"updateConfiguration",
+			")\n",
+			"home",
+			"set_network_state(REMOTE_CONNECT, 0);",
+			"close_cloud",
+			"cloud_ip_addr",
+			"recv",
+			"send",
+			"DUAL_MODE_STATE",
+			"get_status",
+			"uap_start_time",
+			"report_state",
+			"FD_SET",
+			"char",
+			"ota_process",
+			"getNetPara",
+			"report_state",
+			"wNetConfig",
+			"NORMAL_WORK_STATE",
+			"cloud_retry_interval",
+			"updateConfiguration",
+			"get_status",
+			"mxchip_state_t",
+			"sta_retry_interval",
+			"tcp_server_tick",
+			"send",
+			"uap_start_time",
+			"REMOTE_CONNECT",
+			"hal_DMARxBuffer",
+			"UartIsWorking",
+			"scanAP",
+			"p_sock",
+			"tcpServer_fd",
+			"mxchipWNet_HA_tick",
+			"NVIC",
+			"user_NVIC_Configuration",
+			"check",
+			"calc_",
+			"calc_sum",
+			"chec",
+			"uart_cmd_process",
+			"uart_get_one_packet",
+			"ft232Maintain",
+			"rxData",
+			"processRxPacket",
+			"packetBeingProcessed",
+			"processRxPacket",
+			"GetDiceData",
+			"TxTick",
+			"directTxTick",
+			"txTick",
+			"directTxTick",
+			"txPacketInFlight",
+			"packetIsDone",
+			"advanceTail",
+			"enqueueTxPacket",
+			"framePendingPktEnroute",
+			"txPacketInFlight",
+			"currentRssi",
+			"RSSI_DEFAULT_LEVEL",
+			"currentRssi",
+			"rssi",
+			"powerDown",
+			"powerdown",
+			"powerDown",
+			"ft232Maintain",
+			"currentRssi",
+			"Isr",
+			"PORTB_PIN(7)",
+			"Isr",
+			"PORTB_PIN",
+			"GPIO_PBOUT",
+			"powerDown",
+			"halCommonDelayMicroseconds",
+			"Delay",
+			"BOARDLED3",
+			"BIT(",
+			"BIT",
+			"ST_RadioSetNodeId",
+			"joincmd",
+			"internalSleepForQs",
+			"halSleepForQsWithOptions",
+			"halSleepWithOptions",
+			"halSleepForQsWithOptions",
+			"tryToSleep",
+			"internalSleepForQs",
+			"halSleepForQsWithOptions",
+			"BUTTON_S1_WAKE_SOURCE",
+			"halSleepForQsWithOptions",
+			"Failed all transmit attempts",
+			"Failed on",
+			"Fail to",
+			"POLLING_PACKET",
+			"sendData",
+			"Isr",
+			"processRxPacket",
+			"processRxPacket()",
+			"processRxPacket();\nprocessRxPacket();\nprocessRxPacket();",
+			"processRxPacket();\nprocessRxPacket();",
+			"processRxPacket();",
+			"enqueueTxPacket",
+			"PT_GENERIC_DATA",
+			"FCF_ACKREQ",
+			"xVariance",
+			"axes",
+			"#define N     5",
+			"currentBatteryLevel",
+			"GetAccAxesRaw",
+			"DiceSelfKill",
+			"pinIntCnt",
+			"DISABLE_WATCHDOG",
+			"periodic",
+			"emptyEUI",
+			"findSocket",
+			"findEmptySocket",
+			"comparePairTable",
+			"packetIsDone",
+			"ST_RadioTransmit ",
+			"ST_RadioTransmit()",
+			"sent",
+			"BOARD_LED_NOT_INVERTED"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 2,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/Users/William/Develop/mxchipWNet Demo@EMW316x/STM32F2xx_StdPeriph_Driver/src/stm32f2xx_pwr.c",
+					"settings":
+					{
+						"buffer_size": 22496,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								18605,
+								18626
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/Users/william/Develop/Clang_lib/Include/core_cm3.h",
+					"settings":
+					{
+						"buffer_size": 98205,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								22955,
+								22955
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/Users/William/Develop/mxchipWNet Demo@EMW316x/Library/mxchipWNET.h",
+					"settings":
+					{
+						"buffer_size": 13929,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								12164,
+								12164
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 4560.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/Users/William/Develop/mxchipWNet Demo@EMW316x/Demos/Demox_mxchipWNet_HA/mxchipWNet_HA.h",
+					"settings":
+					{
+						"buffer_size": 3365,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2330,
+								2330
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1302.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/Users/William/Develop/mxchipWNet Demo@EMW316x/Demos/Demox_mxchipWNet_HA/mxchipWNet_HA.c",
+					"settings":
+					{
+						"buffer_size": 21747,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								16033,
+								16033
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1788.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "/Users/william/Develop/mxchipWNet Demo@EMW316x/HAL/platform.h",
+					"settings":
+					{
+						"buffer_size": 974,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								766,
+								766
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "/Users/William/Develop/mxchipWNet Demo@EMW316x/HAL/hal_misc.c",
+					"settings":
+					{
+						"buffer_size": 1921,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1729,
+								1729
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 54.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 34.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.clang":
+	{
+		"height": 119.0
+	},
+	"output.exec":
+	{
+		"height": 100.0
+	},
+	"replace":
+	{
+		"height": 0.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"",
+				"STM32F2xx_StdPeriph_Driver/src/stm32f2xx_i2c.c"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 223.0,
+	"status_bar_visible": true
+}

@@ -1,0 +1,99 @@
+# name of executable
+
+
+# Put your stlink folder here so make burn will work.
+STLINK=$(CURDIR)/../bsp/stlink/
+
+ELF=$(notdir $(CURDIR)).elf                    
+
+# Library path
+
+LIBROOT= $(CURDIR)/../sdk
+BSPROOT= $(CURDIR)/../bsp
+# Tools
+
+PREFIX=arm-none-eabi-
+#PREFIX=arm-none-eabi-
+CC=$(PREFIX)gcc
+CCLD=$(PREFIX)gcc
+LD=$(PREFIX)ld
+AR=$(PREFIX)ar
+AS=$(PREFIX)as
+OBJCOPY=$(PREFIX)objcopy
+
+# Code Paths
+
+DEVICE=$(LIBROOT)/CMSIS/CM3/DeviceSupport/ST/STM32F2xx
+CORE=$(LIBROOT)/CMSIS/CM3/CoreSupport
+PERIPH=$(LIBROOT)/STM32F2xx_StdPeriph_Driver
+$HAL=$(LIBROOT)/HAL
+
+# Search path for standard files
+
+vpath %.c $(TEMPLATEROOT)
+
+# Search path for perpheral library
+
+vpath %.c $(CORE)
+vpath %.c $(PERIPH)/src
+vpath %.c $(DEVICE)
+
+# Search path for Library
+
+#vpath %.c $(TEMPLATEROOT)/Library/ff9/src
+#vpath %.c $(TEMPLATEROOT)/Library/ff9/src/option
+#vpath %.c $(TEMPLATEROOT)/Library
+
+#  Processor specific
+
+
+LDSCRIPT = $(TEMPLATEROOT)/stm32.ld
+
+# Compilation Flags
+
+
+
+CFLAGS+= -mcpu=cortex-m3 -mthumb -g -I$(BSPROOT)/include
+CFLAGS+= -I$(TEMPLATEROOT) -I$(LIBROOT)/src -I$(PERIPH)/inc  -I$(CORE) -I$(DEVICE) -I$(HAL)  -I.
+CFLAGS+= -DUSE_STDPERIPH_DRIVER -DUSE_FULL_ASSERT 
+CFLAGS+= -I$(TEMPLATEROOT)/Library/ff9/src -I$(LIBROOT)/../lib/
+CFLAGS+= -fPIC -nostdinc
+CCLDFLAGS+= -T$(LDSCRIPT) -mthumb -mcpu=cortex-m3 
+LDFLAGS+= -T$(LDSCRIPT) 
+LDLIBS+=   $(LIBROOT)/../lib/mxchipWNet_3162.lib
+# Build executable 
+
+$(ELF) : $(OBJS)
+	$(LD)  -o $@ $(OBJS) $(LDLIBS) $(LDFLAGS)
+	$(OBJCOPY) -O binary $@ src.bin
+
+# compile and generate dependency info
+
+%.o: %.c
+	$(CC) -c $(CFLAGS) $< -o $@
+	$(CC) -MM $(CFLAGS) $< > $*.d
+
+%.o: %.s
+	$(CC) -c $(CFLAGS) $< -o $@
+
+clean:
+	rm -f $(OBJS) $(OBJS:.o=.d) $(ELF)  $(CLEANOTHER)
+
+stlink: 
+	$(STLINK)/st-util -1 &
+
+gdb: $(ELF)
+	arm-none-eabi-gdb -ex "target extended-remote:4242" -ex "load src.elf" -ex "file src.elf"
+
+# Flash the STM32F4
+burn: $(ELF)
+	$(STLINK)/st-flash write src.bin 0x8000000
+
+
+# pull in dependencies
+
+-include $(OBJS:.o=.d)
+
+
+
+

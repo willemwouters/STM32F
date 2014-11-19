@@ -1,0 +1,108 @@
+BUILD_VERBOSE=0
+
+# name of executable
+NAME=emw
+OUTPUT_BIN=$(NAME).bin
+OUTPUT_ELF=$(NAME).elf                    
+
+# Put your stlink folder here so make burn will work.
+STLINK=$(CURDIR)/../bsp/stlink/
+
+# Library path
+FIRMWARE_PATH=../firmware
+OBJDUMP_PATH=../firmware/obj
+SDKROOT= $(CURDIR)/../sdk
+BSPROOT= $(CURDIR)/../bsp
+
+# Tools
+PREFIX=arm-none-eabi-
+#PREFIX=arm-none-eabi-
+CC=$(PREFIX)gcc
+CCLD=$(PREFIX)gcc
+LD=$(PREFIX)ld
+AR=$(PREFIX)ar
+AS=$(PREFIX)as
+OBJCOPY=$(PREFIX)objcopy
+
+STMPERIPH=$(SDKROOT)/STM32F2xx_StdPeriph_Driver
+CM3CORE=$(SDKROOT)/CMSIS/CM3/CoreSupport
+CM3DEVICE=$(SDKROOT)/CMSIS/CM3/DeviceSupport/ST/STM32F2xx
+
+# Code Paths
+DEVICE_INCLUDE=-I$(SDKROOT)/CMSIS/CM3/DeviceSupport/ST/STM32F2xx
+BSP_INCLUDE=-I$(BSPROOT)/include -I$(BSPROOT)/include/linux -I$(BSPROOT)/include/arch -I$(SDKROOT)/src 
+SDK_INCLUDE= -I$(STMPERIPH)/inc -I$(CM3CORE) -I$(CM3DEVICE) -I$(SDKROOT)/../lib/
+HAL_INCLUDE=-I$(SDKROOT)/HAL
+MAIN_INCLUDE=-I./include -I.
+
+# Libs
+SDK_LIBS=$(SDKROOT)/../lib/arm.a $(SDKROOT)/../lib/mxchipWNet_3162.lib 
+GCC_LIB=/usr/lib/arm-none-eabi/newlib/libc.a
+
+# Search path for perpheral library if added in Makefile
+vpath %.c $(CM3CORE)
+vpath %.c $(STMPERIPH)/src
+vpath %.c $(CM3DEVICE)
+
+# Compilation Flag
+ifeq ("$(BUILD_VERBOSE)","1")
+Q :=
+vecho = @echo
+else
+Q := @
+vecho = @echo
+endif
+
+LDSCRIPT=../ldscript/stm32.ld
+INCLUDE_FLAGS=$(BSP_INCLUDE) $(SDK_INCLUDE) $(HAL_INCLUDE) $(DEVICE_INCLUDE) $(MAIN_INCLUDE) 
+CFLAGS+= -mcpu=cortex-m3 -mthumb -g $(INCLUDE_FLAGS) -DUSE_STDPERIPH_DRIVER -Wunused
+CFLAGS+= -fPIC -nostdinc -nostdlib -DSTM32 -fno-common -O3
+CCLDFLAGS+= -T$(LDSCRIPT) -nostdinc  -nostdlib -mthumb -mlittle-endian -mthumb-interwork -mfloat-abi=hard 
+LDFLAGS+= -T$(LDSCRIPT)  --no-wchar-size-warning
+LDLIBS+= $(SDK_LIBS) $(GCC_LIB)
+
+
+all: $(FIRMWARE_PATH)/$(OUTPUT_BIN)
+
+OBJS_ORIGINAL:=$(OBJS)
+OBJS := $(addprefix $(OBJDUMP_PATH)/, $(OBJS))
+
+
+$(FIRMWARE_PATH)/$(OUTPUT_BIN) : $(FIRMWARE_PATH)/$(OUTPUT_ELF)
+
+$(FIRMWARE_PATH)/$(OUTPUT_ELF) : $(OBJS)
+	$(vecho) "-> Linking $@"
+	$(Q)$(LD)  -o $(FIRMWARE_PATH)/$@ $(OBJS) $(LDLIBS) $(LDFLAGS)
+	$(vecho) "-> Create binary $(FIRMWARE_PATH)/$(OUTPUT_BIN)"
+	$(Q)$(OBJCOPY) -O binary $@ $(FIRMWARE_PATH)/$(OUTPUT_BIN)
+	
+$(OBJDUMP_PATH)/%.o: %.c
+	$(vecho) "-> Compiling $@"
+	$(Q)$(CC) -c $(CFLAGS) $< -o $@
+	$(Q)$(CC) -MM $(CFLAGS) $< > $(OBJDUMP_PATH)/$*.d
+
+$(OBJDUMP_PATH)/%.o: %.s
+	$(vecho) "-> Compiling $@"
+	$(Q)$(CC) -c $(CFLAGS) $< -o $@
+
+clean:
+	$(vecho) "-> Cleaning crap load of files"
+	$(Q)rm -f $(OBJS_ORIGINAL) $(OBJS_ORIGINAL:.o=.d) $(OBJS_ORIGINAL:.o=.c~)  $(OBJS:.o=.d) $(OBJS) $(FIRMWARE_PATH)/$(OBJDUMP_PATH)/$(OUTPUT_ELF)  $(FIRMWARE_PATH)/$(OUTPUT_ELF)  $(FIRMWARE_PATH)/$(OUTPUT_BIN)  $(CLEANOTHER) 
+
+cleanbin:
+	$(vecho) "-> Cleaning only binaries"
+	$(Q)rm -f $(FIRMWARE_PATH)/$(OUTPUT_ELF) $(FIRMWARE_PATH)/$(OUTPUT_BIN)
+
+stlink: 
+	pkill st-util &
+	$(STLINK)/st-util -1 &
+
+gdb: $(FIRMWARE_PATH)/$(OUTPUT_BIN) stlink
+	arm-none-eabi-gdb -ex "target extended-remote:4242" -ex "load $(OUTPUT_ELF)" -ex "file $(OUTPUT_ELF)"
+
+
+burn: $(FIRMWARE_PATH)/$(OUTPUT_BIN)
+	$(STLINK)/st-flash write ../$(OUTPUT_BIN) 0x8000000
+
+# pull in dependencies
+-include $(OBJS:.o=.d)

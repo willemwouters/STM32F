@@ -1,0 +1,8 @@
+Dependencies for Project 'WPS_EasyLink', Target 'TCP_UDP_ECHO@EMW3161': (DO NOT MODIFY !)
+F (.\startup\startup_stm32f2xx.s)(0x5177A431)()
+F (..\..\..\Library\mxchipWNet_3162.lib)(0x521D6471)()
+F (..\..\..\Library\mxchipWNet_3161.lib)(0x521DF600)()
+F (..\..\..\HAL\system_stm32f2xx.c)(0x51F88640)()
+F (..\..\..\HAL\platform.c)(0x521D78EC)()
+F (..\main.c)(0x521EAB4B)()
+F (..\stm32f2xx_it.c)(0x521DD4CA)()

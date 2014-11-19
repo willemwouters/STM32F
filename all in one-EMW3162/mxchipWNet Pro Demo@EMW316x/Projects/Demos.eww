@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<workspace>
+  <project>
+    <path>$WS_DIR$\Demo2_TCP_IP_Stack\EWARM\TCP_IP_Stack.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\Demo1_WiFi_Link\EWARM\WiFi_Link.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\Demo3_WPS_EasyLink\EWARM\WPS_EasyLink.ewp</path>
+  </project>
+  <batchBuild/>
+</workspace>
+
+
