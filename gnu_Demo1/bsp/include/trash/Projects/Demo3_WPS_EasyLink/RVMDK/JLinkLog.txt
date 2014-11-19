@@ -1,0 +1,31 @@
+
+T0990 000:079 SEGGER J-Link V4.76d Log File (0003ms, 0082ms total)
+T0990 000:079 DLL Compiled: Sep 13 2013 16:35:06 (0003ms, 0082ms total)
+T0990 000:079 Logging started @ 2014-05-23 10:13 (0003ms, 0082ms total)
+T0990 000:083 JLINK_SetWarnOutHandler(...) (0000ms, 0083ms total)
+T0990 000:083 JLINK_OpenEx(...)
+Firmware: J-Link ARM V8 compiled Sep 20 2013 15:09:45
+Hardware: V8.00
+S/N: 270676280
+Feature(s): RDI,FlashDL,FlashBP,JFlash,GDBFULL  returns O.K. (0055ms, 0138ms total)
+T0990 000:138 JLINK_SetErrorOutHandler(...) (0001ms, 0139ms total)
+T0990 000:139 JLINK_ExecCommand("ProjectFile = "Y:\Develop\mxchipWNet Demo@EMW316x\Projects\Demo3_WPS_EasyLink\RVMDK\JLinkSettings.ini"", ...)  returns 0x00 (0003ms, 0142ms total)
+T0990 000:144 JLINK_ExecCommand("Device = STM32F215RG", ...)
+                JLINK_AddMirrorAreaEx(Addr = 0x00000000, Size = 0x00000000) (0001ms, 0001ms total)
+              Device "STM32F215RG" selected (1024 KB flash, 64 KB RAM).  returns 0x00 (0004ms, 0146ms total)
+T0990 000:148 JLINK_ExecCommand("DisableConnectionTimeout", ...)  returns 0x01 (0000ms, 0146ms total)
+T0990 000:149 JLINK_GetHardwareVersion()  returns 0x13880 (0000ms, 0147ms total)
+T0990 000:149 JLINK_GetDLLVersion()  returns 47604 (0000ms, 0147ms total)
+T0990 000:149 JLINK_GetFirmwareString(...) (0000ms, 0147ms total)
+T0990 000:155 JLINK_GetDLLVersion()  returns 47604 (0000ms, 0148ms total)
+T0990 000:155 JLINK_GetCompileDateTime() (0001ms, 0149ms total)
+T0990 000:158 JLINK_GetFirmwareString(...) (0000ms, 0149ms total)
+T0990 000:159 JLINK_GetHardwareVersion()  returns 0x13880 (0001ms, 0150ms total)
+T0990 000:168 JLINK_TIF_Select(JLINKARM_TIF_SWD)  returns 0x00 (0013ms, 0163ms total)
+T0990 000:182 JLINK_SetSpeed(2000) (0002ms, 0166ms total)
+T0990 000:184 JLINK_GetId()
+  ***** Error: Supply voltage too low (1 Volt is required, Measured: 0.0 Volt).
+Please check target power.STM32F2xxx/STM32F4xxx: Can not attach to CPU. Trying connect under reset.RESET (pin 15) high, but should be low. Please check target hardware.  returns 0x00000000 (0322ms, 0488ms total)
+T0990 001:957 JLINK_Close() (0008ms, 0496ms total)
+T0990 001:965 JLINK_Close() (0000ms, 0496ms total)
+T0990 001:966 JLINK_Close() (0000ms, 0496ms total)

@@ -1,0 +1,45 @@
+{
+	
+	"folders":
+	[
+		{
+			"path": "../../../HAL"
+		},
+		{
+			"path": "../../../Library"
+		},
+		{
+			"path": "../../../Demos/Demox_mxchipWNet_HA"
+		},
+		{
+			"path": "../../../STM32F2xx_StdPeriph_Driver"
+		}
+	],
+	"settings":
+	{
+		"HOME": "/Users/william/Develop/mxchipWNet Demo@EMW316x",
+
+		"sublimeclang_options":
+		[
+			"-Wno-typedef-redefinition",
+			"-Wno-unused-parameter",
+			"-Wno-empty-body",
+			"-Wno-attributes",
+			"-ferror-limit=0",
+			"-W",
+			"-c",
+			"-D__int64=long long",
+			"-D__pure=__attribute__((const))",
+			"-D__value_in_regs=__attribute__(())",
+			"-DUSE_STDPERIPH_DRIVER",
+			"-DmxchipWNet_HA",
+			"-DEMW3162",
+			"-I/Users/william/Develop/mxchipWNet Demo@EMW316x/Demos/Demox_mxchipWNet_HA/",
+			"-I/Users/william/Develop/mxchipWNet Demo@EMW316x/HAL/",
+			"-I/Users/william/Develop/mxchipWNet Demo@EMW316x/Library/",
+			"-I/Users/william/Develop/mxchipWNet Demo@EMW316x/STM32F2xx_StdPeriph_Driver/inc/",
+			"-I/Users/william/Develop/Clang_lib/Include/",
+			"-I/Users/william/Develop/Clang_lib/ARMCC/include/"		
+		]
+	}
+}
