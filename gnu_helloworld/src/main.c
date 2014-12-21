@@ -12,9 +12,6 @@ void _exit(int i) {
     while(1);
 }
 
-void assert_failed(uint8_t* file, uint32_t line) {
-	while(1);
-}
 
 
 int main(void){
@@ -30,10 +27,10 @@ int main(void){
     GPIO_InitStructure.GPIO_Pin = GPIO_Pin_8;
     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
     GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz;
-    GPIO_Init(GPIOC, &GPIO_InitStructure);
-    
+    GPIO_Init(GPIOB, &GPIO_InitStructure);
+    GPIO_WriteBit(GPIOB, GPIO_Pin_8, Bit_SET);
     // mxchipInit();
-
+	SystemInit();
     // Configure SysTick Timer
     if (SysTick_Config(SystemCoreClock / 1000))
         while (1);
@@ -43,7 +40,7 @@ int main(void){
         static int ledval = 0;
 
         // toggle LED
-        GPIO_WriteBit(GPIOC, GPIO_Pin_8, (ledval) ? Bit_SET : Bit_RESET);
+        GPIO_WriteBit(GPIOB, GPIO_Pin_8, (ledval) ? Bit_SET : Bit_RESET);
         ledval = 1 - ledval;
         Delay (5000);    // wait 250ms
     }
@@ -62,10 +59,9 @@ void SysTick_Handler(void){
         TimingDelay--;
 }
 
-#ifdef USE_FULL_ASSERT
 void assert_failed(uint8_t* file, uint32_t line){
     /* Infinite loop */
     /* Use GDB to find out why we're here */
     while(1);
 }
-#endif
+
