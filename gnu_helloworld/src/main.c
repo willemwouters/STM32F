@@ -28,7 +28,8 @@ int main(void){
     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
     GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz;
     GPIO_Init(GPIOB, &GPIO_InitStructure);
-    GPIO_WriteBit(GPIOB, GPIO_Pin_8, Bit_SET);
+    GPIO_WriteBit(GPIOB, GPIO_Pin_0, Bit_SET);
+    GPIO_WriteBit(GPIOB, GPIO_Pin_1, Bit_SET);
     // mxchipInit();
 	SystemInit();
     // Configure SysTick Timer
@@ -40,7 +41,8 @@ int main(void){
         static int ledval = 0;
 
         // toggle LED
-        GPIO_WriteBit(GPIOB, GPIO_Pin_8, (ledval) ? Bit_SET : Bit_RESET);
+        GPIO_WriteBit(GPIOB, GPIO_Pin_0, (ledval) ? Bit_SET : Bit_RESET);
+GPIO_WriteBit(GPIOB, GPIO_Pin_1, (ledval) ? Bit_SET : Bit_RESET);
         ledval = 1 - ledval;
         Delay (5000);    // wait 250ms
     }
