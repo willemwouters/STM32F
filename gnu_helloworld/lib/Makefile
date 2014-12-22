@@ -26,7 +26,10 @@ BUILDDIR = objs
 
 CFLAGS = $(INCLUDEFLAGS) $(CCFLAGS)
 SOURCES := $(shell find  $(SOURCEDIR) -name '*.c')
+SOURCESASM := $(shell find  $(SOURCEDIR) -name '*.s')
+
 OBJECTS := $(addprefix $(BUILDDIR)/,$(SOURCES:%.c=%.o))
+OBJECTS += $(addprefix $(BUILDDIR)/,$(SOURCESASM:%.s=%.o))
 
 all: $(BINARY)
 
@@ -36,6 +39,10 @@ clean:
 
 $(BINARY): $(OBJECTS)
 	$(V)$(AR) rcs $(BINARY) $(OBJECTS)
+
+$(BUILDDIR)/%.o : %.s
+	@mkdir -p $(@D)
+	$(V)$(CC) $(CFLAGS) -c $< -o $@
 
 $(BUILDDIR)/%.o : %.c
 	@mkdir -p $(@D)
