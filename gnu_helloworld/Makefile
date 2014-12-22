@@ -25,6 +25,7 @@ BUILDDIR = objs
 
 CFLAGS = $(INCLUDEFLAGS) $(CCFLAGS)
 SOURCES := $(shell find  $(SOURCEDIR) -name '*.c')
+SOURCES += $(shell find  $(SOURCEDIR) -name '*.s')
 OBJECTS := $(addprefix $(BUILDDIR)/,$(SOURCES:%.c=%.o))
 
 all: $(BINARY)
@@ -41,6 +42,6 @@ lib/libplatform.a:
 	$(V)make -C ./lib
 
 $(BUILDDIR)/%.o : %.c
-	@mkdir -p $(@D)
+	$(V)mkdir -p $(@D)
 	$(V)$(CC) $(CFLAGS) -c $< -o $@
 

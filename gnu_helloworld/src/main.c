@@ -31,11 +31,10 @@ int main(void){
     GPIO_WriteBit(GPIOB, GPIO_Pin_0, Bit_SET);
     GPIO_WriteBit(GPIOB, GPIO_Pin_1, Bit_SET);
     // mxchipInit();
-	SystemInit();
+    // SystemInit(); // this call is already done in startup_stm32f2xx.s
     // Configure SysTick Timer
     if (SysTick_Config(SystemCoreClock / 1000))
         while (1);
-
 
     while (1){
         static int ledval = 0;
