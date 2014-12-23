@@ -1,186 +1,163 @@
 /*
-Linker script for STM32F10x_128K_8K
-
-modified from
-
-http://www.codesourcery.com/archives/arm-gnu/msg02972.html
-http://communities.mentor.com/community/cs/archives/arm-gnu/msg02972.html
+*****************************************************************************
+**
+**  File        : stm32_flash.ld
+**
+**  Abstract    : Linker script for STM32F207 Device with
+**                1MByte FLASH, 128KByte SRAM
+**
+**                Set heap size, stack size and stack location according
+**                to application requirements.
+**
+**                Set memory bank area and size if external memory is used.
+**
+**  Target      : STMicroelectronics STM32
+**
+**  Environment : Eclipse with CDT plugin and GCC compiler from CodeSourcery
+**
+**			 Author           Date        Comment
+**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+** 		    T.Kamenicky      24/06/11    Upravil kod stazen z netu
+**			T.Kamenicky		 13/10/11	 Predelal na STM32F2
+**			T.Kamenicky		 29/11/11    Pridal podporu externi SRAM
+**
+*****************************************************************************
 */
 
-/*
-There will be a link error if there is not this amount of RAM free at the
-end.
-*/
-
-_Minimum_Stack_Size = 256;
-
+/* Entry Point */
+/* This define entry point for linker, this address is used for CPU too as absolute first function */
 ENTRY(Reset_Handler)
 
+/* Highest address of the user mode stack, _estack is end of stack */
+_estack = 0x20020000;    /* end of 128K RAM */
 
-/* Memory Spaces Definitions */
+/* Generate a link error if heap and stack don't fit into RAM */
+/* Heap is zero because we use own malloc implementation. The amount of heap is calculated 
+ * from free space after compilation, see last section for RAM area */
+_Min_Heap_Size = 0x0;      /* required amount of heap  */
 
+/* This stack is used for main function. If FreeRTOS is used this stack is used by OS itself. */
+/* The size of stack for tasks is defined in freertos config file and when creating the task. */
+_Min_Stack_Size = 0x600; /* required amount of stack */
+
+/* Specify the memory areas */
 MEMORY
 {
-  RAM (rwx)  : ORIGIN = 0x20000000, LENGTH = 32K
-  FLASH (rx) : ORIGIN = 0x08000000, LENGTH = 1M
+  FLASH (rx)      : ORIGIN = 0x08000000, LENGTH = 1022K		  /* This is main program area */
+  FACTORY_VAR(rx) :	ORIGIN = 0x080FF800, LENGTH = 2K 		  /* This area is used for factory values, such as MAC address, ID...etc */
+  RAM (xrw)       : ORIGIN = 0x20000000, LENGTH = 128K        /* This is RAM area */
 }
 
-__ram_start__ = ORIGIN(RAM);
-__ram_size__  = LENGTH(RAM);
-__ram_end__   = __ram_start__ + __ram_size__;
-_estack = __ram_end__;
-/* highest address of the user mode stack */
-
-
-
-PROVIDE ( _Stack_Limit = _estack - _Minimum_Stack_Size );
-
-/* Sections Definitions */
-
+/* Define output sections */
 SECTIONS
 {
-    .text :
-    {
-        KEEP(*(.isr_vector))            /* Startup code */
-        *(.text)                   /* code */
-        *(.text.*)                 /* remaining code */
-        *(.rodata)                 /* read-only data (constants) */
-        *(.rodata.*)
-        *(.glue_7)
-        *(.glue_7t)
-        *(.vfp11_veneer)
-        *(.v4_bx)
-        *(.ARM.extab* .gnu.linkonce.armextab.*)
+   /* The startup code goes first into FLASH */
+  .isr_vector :
+  {
+    . = ALIGN(4);
+    KEEP(*(.isr_vector)) /* Startup code */
+    . = ALIGN(4);
+  } >FLASH
+
+  /* The program code and other data goes into FLASH */
+  .text :
+  {
+    . = ALIGN(4);
+    *(.text)           /* .text sections (code) */
+    *(.text*)          /* .text* sections (code) */
+    *(.rodata)         /* .rodata sections (constants, strings, etc.) */
+    *(.rodata*)        /* .rodata* sections (constants, strings, etc.) */
+    *(.glue_7)         /* glue arm to thumb code */
+    *(.glue_7t)        /* glue thumb to arm code */
+
+    KEEP (*(.init))
+    KEEP (*(.fini))
+
+     . = ALIGN(4);
+    _etext = .;        /* define a global symbols at end of code */
+  } >FLASH
+
+  /* .ARM.extab names a section that contains exception unwinding information.  See EHABI for details. */
+  /* .ARM.exidx names a section that contains index entries for section unwinding.  See EHABI for details. */
+   .ARM.extab   : { *(.ARM.extab* .gnu.linkonce.armextab.*) } >FLASH
+    .ARM : {
+    __exidx_start = .;
+      *(.ARM.exidx*)
+      __exidx_end = .;
     } >FLASH
 
-    /* for exception handling/unwind - some Newlib functions (in
-    common with C++ and STDC++) use this. */
-    .ARM.extab :
-    {
-        *(.ARM.extab* .gnu.linkonce.armextab.*)
+  /* Is used for compiler information, which is located only in elf file */
+  .ARM.attributes 0 : { *(.ARM.attributes) }
 
-    } > FLASH
 
-     __exidx_start = .;
-    .ARM.exidx :
-    {
-        *(.ARM.exidx* .gnu.linkonce.armexidx.*)
-    } > FLASH
-        __exidx_end = .;
+  /* used by the startup as memory location to initialize data */
+  /* from this point the content of flash is copied to ram */
+  _sidata = .;
+
+  /* Initialized data sections goes into RAM, load LMA copy after code */
+  .data : AT ( _sidata )
+  {
+    . = ALIGN(4);
+    _sdata = .;        /* create a global symbol at data start */
+    *(.data)           /* .data sections */
+    *(.data*)          /* .data* sections */
 
     . = ALIGN(4);
-     _etext = .;
-    /* This is used by the startup in order to initialize the .data secion
-*/
-    _sidata = _etext;
+    _edata = .;       /* define a global symbol at data end */
+  } >RAM
 
-    /* This is the initialized data section
-    The program executes knowing that the data is in the RAM
-    but the loader puts the initial values in the FLASH (inidata).
-    It is one task of the startup to copy the initial values from FLASH to
-RAM. */
-    .data  : AT ( _sidata )
-    {
-        . = ALIGN(4);
-        /* This is used by the startup in order to initialize the .data
-secion */
-        _sdata = . ;
+  _SRAM_data = _sidata + _edata - _sdata;
+   /* Uninitialized data section */
+  . = ALIGN(4);
+  
+  .bss : AT ( _edata )
+  {
+    /* This is used by the startup in order to initialize the .bss secion */
+    _sbss = .;         /* define a global symbol at bss start */
+    __bss_start__ = _sbss;
+    *(.bss)
+    *(.bss*)
+    *(COMMON)
 
-        *(.data)
-        *(.data.*)
+    . = ALIGN(4);
+    _ebss = .;         /* define a global symbol at bss end */
+    __bss_end__ = _ebss;
+  } >RAM
+  
+  /* Those numbers are used for SRAM init */
+  PROVIDE ( _linker_sram_start = _iSRAM_data );
+  PROVIDE ( _linker_sram_data_end = _iSRAM_data_end );
+  PROVIDE ( _linker_sram_end = _iSRAM_null_data_end );
+  PROVIDE ( _linker_sram_inits = _SRAM_data );
+  
+  /* Those numbers are used for malloc and sbrk functions */
+  PROVIDE ( _linker_memory_start = _sdata );
+  PROVIDE ( _linker_heap_start = _ebss );
+  PROVIDE ( _linker_heap_end = (_estack - _Min_Stack_Size) );
+  PROVIDE ( _linker_memory_end = _estack );
+  PROVIDE ( _end = _ebss );
 
-        . = ALIGN(4);
-        /* This is used by the startup in order to initialize the .data
-secion */
-        _edata = . ;
-    } >RAM
+   /* User_heap_stack section, used to check that there is enough RAM left */
+  ._user_heap_stack : AT ( _linker_heap_end )
+  {
+    . = ALIGN(4);
+    . = . + _Min_Heap_Size;
+    . = . + _Min_Stack_Size;
+    . = ALIGN(4);
+  } >RAM
 
+ /* FLASH memory area for factory default values                          */
+  /* Example of usage: extern int foo(void) __attribute__ ((section (".fvtext"))); */
+  /* unsigned long int my_factory_number_changed_in_production = 0xAABBCCDD __attribute__ ((section (".fvrodata"))); */ 
+  .factory_values :
+  {
+    . = ALIGN(4);
+    *(.fvtext)        /* .fvtext sections (code) */
+    *(.fvtext*)       /* .fvtext* sections (code)  */
+    *(.fvrodata)      /* read-only data (constants) */
+    *(.fvrodata*)
+    . = ALIGN(4);
+  } >FACTORY_VAR
 
-    /* This is the uninitialized data section */
-    .bss :
-    {
-        . = ALIGN(4);
-        /* This is used by the startup in order to initialize the .bss
-secion */
-        _sbss = .;
-	__bss_start__ = _sbss;
-        *(.bss)
-        *(.bss.*)
-        *(COMMON)
-
-        . = ALIGN(4);
-        /* This is used by the startup in order to initialize the .bss
-secion */
-        _ebss = . ;
-	__bss_end__ = _ebss;
-    } >RAM
-
-    PROVIDE ( end = _ebss );
-    PROVIDE ( _end = _ebss );
-    PROVIDE ( _exit = _ebss );
-    PROVIDE (_stackend = ORIGIN(RAM) + LENGTH(RAM) - _Minimum_Stack_Size);
-
-    /* This is the user stack section
-    This is just to check that there is enough RAM left for the User mode
-stack
-    It should generate an error if it's full.
-     */
-    ._usrstack :
-    {
-        . = ALIGN(4);
-        _susrstack = . ;
-
-        . = . + _Minimum_Stack_Size ;
-
-        . = ALIGN(4);
-        _eusrstack = . ;
-    } >RAM
-
-
-
-    /* after that it's only debugging information. */
-
-    /* remove the debugging information from the standard libraries */
-/*
-    DISCARD :
-    {
-     libc.a ( * )
-     libm.a ( * )
-     libgcc.a ( * )
-     }
-*/
-
-    /* Stabs debugging sections.  */
-    .stab          0 : { *(.stab) }
-    .stabstr       0 : { *(.stabstr) }
-    .stab.excl     0 : { *(.stab.excl) }
-    .stab.exclstr  0 : { *(.stab.exclstr) }
-    .stab.index    0 : { *(.stab.index) }
-    .stab.indexstr 0 : { *(.stab.indexstr) }
-    .comment       0 : { *(.comment) }
-    /* DWARF debug sections.
-       Symbols in the DWARF debugging sections are relative to the beginning
-       of the section so we begin them at 0.  */
-    /* DWARF 1 */
-    .debug          0 : { *(.debug) }
-    .line           0 : { *(.line) }
-    /* GNU DWARF 1 extensions */
-    .debug_srcinfo  0 : { *(.debug_srcinfo) }
-    .debug_sfnames  0 : { *(.debug_sfnames) }
-    /* DWARF 1.1 and DWARF 2 */
-    .debug_aranges  0 : { *(.debug_aranges) }
-    .debug_pubnames 0 : { *(.debug_pubnames) }
-    /* DWARF 2 */
-    .debug_info     0 : { *(.debug_info .gnu.linkonce.wi.*) }
-    .debug_abbrev   0 : { *(.debug_abbrev) }
-    .debug_line     0 : { *(.debug_line) }
-    .debug_frame    0 : { *(.debug_frame) }
-    .debug_str      0 : { *(.debug_str) }
-    .debug_loc      0 : { *(.debug_loc) }
-    .debug_macinfo  0 : { *(.debug_macinfo) }
-    /* SGI/MIPS DWARF 2 extensions */
-    .debug_weaknames 0 : { *(.debug_weaknames) }
-    .debug_funcnames 0 : { *(.debug_funcnames) }
-    .debug_typenames 0 : { *(.debug_typenames) }
-    .debug_varnames  0 : { *(.debug_varnames) }
+  
 }

@@ -21,7 +21,7 @@ BINARY = libplaform.a
 SOURCEDIR = src
 
 INCLUDEFLAGS = -I .  -I ./inc -I ./src/CMSIS 
-CCFLAGS = -mcpu=cortex-m3 -mthumb -DSTM32
+CCFLAGS = -mlittle-endian -mthumb -mcpu=cortex-m3 -mfloat-abi=softfp -g
 BUILDDIR = objs
 
 CFLAGS = $(INCLUDEFLAGS) $(CCFLAGS)

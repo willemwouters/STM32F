@@ -23,7 +23,7 @@
 /* Define memory regions. */
 MEMORY
 {
-	FLASH (rx)  : ORIGIN = 0x8000000, LENGTH = 4M
+	FLASH (rx)  : ORIGIN = 0x8000000, LENGTH = 1M
 	ram (rwx) : ORIGIN = 0x20000000, LENGTH = 112K
 }
 
@@ -54,18 +54,23 @@ SECTIONS
         } >ram
 
         .bss : {
-                *(.bss*)        /* Read-write zero initialized data */
-                *(COMMON)
-                . = ALIGN(4);
-                _ebss = .;
+          . = ALIGN(4);
+        /* This is used by the startup in order to initialize the .bss
+secion */
+        _sbss = .;
+	__bss_start__ = _sbss;
+        *(.bss)
+        *(.bss.*)
+        *(COMMON)
+
+        . = ALIGN(4);
+        /* This is used by the startup in order to initialize the .bss
+secion */
+        _ebss = . ;
+	__bss_end__ = _ebss;
         } >ram AT >rom
 
-        /*
-         * The .eh_frame section appears to be used for C++ exception handling.
-         * You may need to fix this if you're using C++.
-         */
-        /DISCARD/ : { *(.eh_frame) }
-
+      
         . = ALIGN(4);
         end = .;
 }

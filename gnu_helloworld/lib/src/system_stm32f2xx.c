@@ -136,7 +136,7 @@
 
 /*!< Uncomment the following line if you need to relocate your vector Table in
      Internal SRAM. */
-/* #define VECT_TAB_SRAM */
+ //#define VECT_TAB_SRAM 
 #define VECT_TAB_OFFSET  0xC200 /*!< Vector Table base offset field. 
                                    This value must be a multiple of 0x200. */
 		
@@ -345,7 +345,7 @@ static void SetSysClock(void)
   {
     HSEStatus = RCC->CR & RCC_CR_HSERDY;
     StartUpCounter++;
-  } while((HSEStatus == 0) && (StartUpCounter != HSE_STARTUP_TIMEOUT));
+  } while((HSEStatus == 0)  && (StartUpCounter != HSE_STARTUP_TIMEOUT));
 
   if ((RCC->CR & RCC_CR_HSERDY) != RESET)
   {
@@ -390,6 +390,7 @@ static void SetSysClock(void)
     while ((RCC->CFGR & (uint32_t)RCC_CFGR_SWS ) != RCC_CFGR_SWS_PLL);
     {
     }
+   
   }
   else
   { /* If HSE fails to start-up, the application will have wrong clock

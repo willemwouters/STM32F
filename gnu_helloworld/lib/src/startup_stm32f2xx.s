@@ -64,7 +64,6 @@ defined in linker script */
   .weak  Reset_Handler
   .type  Reset_Handler, %function
 Reset_Handler:  
-
 /* Copy the data segment initializers from flash to SRAM */  
   movs  r1, #0
   b  LoopCopyDataInit
@@ -93,7 +92,7 @@ LoopFillZerobss:
   cmp  r2, r3
   bcc  FillZerobss
 /* Call the clock system intitialization function.*/
-  bl  SystemInit   
+  bl  SystemInit
 /* Call the application's entry point.*/
   bl  main
   bx  lr    
@@ -256,9 +255,6 @@ g_pfnVectors:
    .weak      PendSV_Handler
    .thumb_set PendSV_Handler,Default_Handler
 
-   .weak      SysTick_Handler
-   .thumb_set SysTick_Handler,Default_Handler              
-  
    .weak      WWDG_IRQHandler                   
    .thumb_set WWDG_IRQHandler,Default_Handler      
                   

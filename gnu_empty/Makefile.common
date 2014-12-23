@@ -15,13 +15,13 @@ SDKROOT= $(CURDIR)/../sdk
 BSPROOT= $(CURDIR)/../bsp
 
 # Tools
-PREFIX=arm-none-eabi-
-#PREFIX=arm-none-eabi-
+PREFIX=/home/wouters/GIT/willemwouters/EMW3162/bsp/gcc-arm-none-eabi-4_9-2014q4/bin/arm-none-eabi-
+PREFIX2=/home/wouters/GIT/willemwouters/EMW3162/bsp/gcc-arm-none-eabi-4_9-2014q4/arm-none-eabi/bin/
 CC=$(PREFIX)gcc
 CCLD=$(PREFIX)gcc
-LD=$(PREFIX)ld
-AR=$(PREFIX)ar
-AS=$(PREFIX)as
+LD=$(PREFIX2)ld
+AR=$(PREFIX2)ar
+AS=$(PREFIX2)as
 OBJCOPY=$(PREFIX)objcopy
 
 STMPERIPH=$(SDKROOT)/STM32F2xx_StdPeriph_Driver
@@ -33,11 +33,11 @@ DEVICE_INCLUDE=-I$(SDKROOT)/CMSIS/CM3/DeviceSupport/ST/STM32F2xx
 BSP_INCLUDE=-I$(BSPROOT)/include -I$(BSPROOT)/include/linux -I$(BSPROOT)/include/arch -I$(SDKROOT)/src 
 SDK_INCLUDE= -I$(STMPERIPH)/inc -I$(CM3CORE) -I$(CM3DEVICE) -I$(SDKROOT)/../lib/
 HAL_INCLUDE=-I$(SDKROOT)/HAL
-MAIN_INCLUDE=-I./include -I.
+MAIN_INCLUDE=-I./include -I. 
 
 # Libs
 SDK_LIBS=$(SDKROOT)/../lib/arm.a $(SDKROOT)/../lib/mxchipWNet_3162.lib 
-GCC_LIB=/usr/lib/arm-none-eabi/newlib/libc.a
+GCC_LIB=/home/wouters/GIT/willemwouters/EMW3162/bsp/gcc-arm-none-eabi-4_9-2014q4/arm-none-eabi/lib/libc.a
 
 # Search path for perpheral library if added in Makefile
 vpath %.c $(CM3CORE)
