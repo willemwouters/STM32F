@@ -5,17 +5,7 @@
 #include "stm32f2xx_gpio.h"
  #include "stm32f2xx_rcc.h"
  
-
-
-//Quick hack, approximately 1ms delay
-void ms_delay(int ms)
-{
-   while (ms-- > 0) {
-      volatile int x=5971;
-      while (x-- > 0)
-         __asm("nop");
-   }
-}
+void Delay(uint32_t nTime);
 
  void assert_failed(uint8_t* file, uint32_t line) {
 	while(1);
@@ -52,14 +42,30 @@ RCC_AHB1PeriphClockCmd ( RCC_AHB1Periph_GPIOB, ENABLE);
 
  GPIO_Init( GPIOB, &gpio_initstructure ); 
      
+if (SysTick_Config(SystemCoreClock / 1000))
+   while (1);
 
     for (;;) {
 	      GPIO_SetBits(GPIOB,GPIO_Pin_0);
 	      GPIO_SetBits(GPIOB,GPIO_Pin_1);
 
-       ms_delay(500);
+       	Delay(1000);
 		GPIO_ResetBits(GPIOB,GPIO_Pin_0);
-	      GPIO_ResetBits(GPIOB,GPIO_Pin_1);
- ms_delay(500);
+		GPIO_ResetBits(GPIOB,GPIO_Pin_1);
+	      
+	Delay(1000);
     }
 }
+
+// Timer code
+static __IO uint32_t TimingDelay;
+
+void Delay(uint32_t nTime){
+    TimingDelay = nTime;
+    while(TimingDelay != 0);
+}
+
+void SysTick_Handler(void){
+        TimingDelay--;
+}
+
