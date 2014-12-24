@@ -4,7 +4,7 @@ STLINK=~/stlink.git
 
 # Put your source files here (or *.c, etc)
 SRCS=main.c system_stm32f2xx.c stm32f2xx_gpio.c stm32f2xx_rcc.c stm32f2xx_usart.c
-SRCS += startup_stm32f2xx.s 
+SRCS += startup_stm32f2xx.s newlib_stubs.c
 
 # Binaries will be generated with this name (.elf, .bin, .hex, etc)
 PROJ_NAME=uart

@@ -4,6 +4,9 @@
 #include "stm32f2xx_rcc.h"
 #include "stm32f2xx_usart.h"
 
+#include <stdio.h>
+
+
 void Delay(uint32_t nTime);
 USART_InitTypeDef usart1_init_struct;
     
@@ -67,6 +70,7 @@ void USART_Send(const char *str)
 //Flash orange LED at about 1hz
 int main(void)
 {
+	long cnt = 0;
 	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOB | RCC_AHB1Periph_GPIOA, ENABLE);
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_USART1, ENABLE);
 	//RCC_AHB1PeriphClockCmd ( RCC_AHB1Periph_GPIOB, ENABLE);
@@ -83,14 +87,15 @@ int main(void)
     	while (1);
 
     for (;;) {
+		cnt++;
 		GPIO_SetBits(GPIOB,GPIO_Pin_0);
 		GPIO_SetBits(GPIOB,GPIO_Pin_1);
-       	Delay(1000);
+       	Delay(100);
 		GPIO_ResetBits(GPIOB,GPIO_Pin_0);
 		GPIO_ResetBits(GPIOB,GPIO_Pin_1);
-		Delay(1000);
-		USART_Send("testing 1234\r\n");
-
+		Delay(100);
+	
+		printf("Hello World %ld\r\n", cnt);
     }
 }
 
