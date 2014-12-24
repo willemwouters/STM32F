@@ -2,7 +2,10 @@
 
 #define USE_STDPERIPH_DRIVER
 #include "stm32f2xx.h"
+#include "stm32f2xx_gpio.h"
+ #include "stm32f2xx_rcc.h"
  
+
 
 //Quick hack, approximately 1ms delay
 void ms_delay(int ms)
@@ -14,16 +17,49 @@ void ms_delay(int ms)
    }
 }
 
-
+ void assert_failed(uint8_t* file, uint32_t line) {
+	while(1);
+}
 
 //Flash orange LED at about 1hz
 int main(void)
 {
-    RCC->AHB1ENR |= RCC_AHB1ENR_GPIOBEN;  // enable the clock to GPIOD
-    //GPIOB->MODER = (1 << 26);             // set pin 13 to be general purpose output
-    GPIOB->MODER |= GPIO_MODER_MODER0_0;
+RCC_AHB1PeriphClockCmd ( RCC_AHB1Periph_GPIOB, ENABLE);
+
+ GPIO_InitTypeDef  gpio_initstructure;
+	gpio_initstructure.GPIO_Pin  =    0x0000 // used for a holder for -OR-
+                                    | GPIO_Pin_0    // ADC-10 =
+                                    | GPIO_Pin_1    // ADC-11 =
+                                  //| GPIO_Pin_2    // ADC-12 =
+                                  //| GPIO_Pin_3    // ADC-13 =
+                                  //| GPIO_Pin_4    // ADC-14 =
+                                  //| GPIO_Pin_5    // ADC-15 =
+                                  //  | GPIO_Pin_6    // PWM-T3.1 =
+                                  //  | GPIO_Pin_7    // PWM-T3.2 =
+                                  //  | GPIO_Pin_8    // PWM-T3.3 =
+                                  //  | GPIO_Pin_9    // PWM-T3.4 =
+                                  //| GPIO_Pin_10   // UART4 TxD (Diagnostics)
+                                  //| GPIO_Pin_11   // UART4 RxD (Diagnostics)
+                                  //| GPIO_Pin_12   // "USART3_CK" [ ?? SPARE ?? ]
+                                  //| GPIO_Pin_13   // Tamper/RTC = "TP32"
+                                  //| GPIO_Pin_14   // OSC32(IN)
+                                  //| GPIO_Pin_15;  // OSC32(OUT)
+                                ; // Semi-colon placed here for convenience
+    gpio_initstructure.GPIO_Speed= GPIO_Speed_50MHz;
+    gpio_initstructure.GPIO_Mode = GPIO_Mode_OUT;
+ gpio_initstructure.GPIO_OType = GPIO_OType_PP;
+    gpio_initstructure.GPIO_PuPd = GPIO_PuPd_UP;
+
+ GPIO_Init( GPIOB, &gpio_initstructure ); 
+     
+
     for (;;) {
+	      GPIO_SetBits(GPIOB,GPIO_Pin_0);
+	      GPIO_SetBits(GPIOB,GPIO_Pin_1);
+
        ms_delay(500);
-       GPIOB->ODR ^= (1 << 0);           // Toggle the pin 
+		GPIO_ResetBits(GPIOB,GPIO_Pin_0);
+	      GPIO_ResetBits(GPIOB,GPIO_Pin_1);
+ ms_delay(500);
     }
 }

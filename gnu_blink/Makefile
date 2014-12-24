@@ -3,7 +3,7 @@
 STLINK=~/stlink.git
 
 # Put your source files here (or *.c, etc)
-SRCS=main.c system_stm32f2xx.c
+SRCS=main.c system_stm32f2xx.c stm32f2xx_gpio.c stm32f2xx_rcc.c
 
 # Binaries will be generated with this name (.elf, .bin, .hex, etc)
 PROJ_NAME=blinky
