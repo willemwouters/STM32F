@@ -139,7 +139,7 @@ if [ "x$is_ppa_release" != "xyes" ]; then
                 -L$BUILDDIR_NATIVE/host-libs/usr/lib "
 
 
-  NEWLIB_CONFIG_OPTS=" --build=$BUILD --host=$HOST_NATIVE CFLAGS=-fshort-wchar CXXFLAGS=-fshort-wchar"
+  NEWLIB_CONFIG_OPTS=" --build=$BUILD --host=$HOST_NATIVE"
 
   
 fi
@@ -152,11 +152,11 @@ cd $SRCDIR
 echo Task [III-2] /$HOST_NATIVE/newlib/
 saveenv
 prepend_path PATH $INSTALLDIR_NATIVE/bin
-saveenvvar CFLAGS_FOR_TARGET '-g -O2 -ffunction-sections -fdata-sections'
+saveenvvar CFLAGS_FOR_TARGET '-g -O2 -ffunction-sections -fdata-sections -fshort-wchar'
 mkdir -p $BUILDDIR_NATIVE/newlib
 pushd $BUILDDIR_NATIVE/newlib
 
-$SRCDIR/$NEWLIB/configure  \
+ $SRCDIR/$NEWLIB/configure  \
     $NEWLIB_CONFIG_OPTS \
     --target=$TARGET \
     --prefix=$INSTALLDIR_NATIVE \
@@ -169,54 +169,12 @@ $SRCDIR/$NEWLIB/configure  \
     --disable-newlib-supplied-syscalls \
     --disable-nls
 
-make -j$JOBS
+ make -j$JOBS 
 
-make install
+ make install
 
 
 popd
 restoreenv
 
-echo Task [III-3] /$HOST_NATIVE/newlib-nano/
-saveenv
-prepend_path PATH $INSTALLDIR_NATIVE/bin
-saveenvvar CFLAGS_FOR_TARGET '-g -Os -ffunction-sections -fdata-sections'
-mkdir -p $BUILDDIR_NATIVE/newlib-nano
-pushd $BUILDDIR_NATIVE/newlib-nano
-
-make -j$JOBS
-make install
-
-popd
-restoreenv
-
-
-echo Task [III-8] /$HOST_NATIVE/pretidy/
-rm -rf $INSTALLDIR_NATIVE/lib/libiberty.a
-find $INSTALLDIR_NATIVE -name '*.la' -exec rm '{}' ';'
-
-
-echo Task [III-10] /$HOST_NATIVE/strip_target_objects/
-saveenv
-prepend_path PATH $INSTALLDIR_NATIVE/bin
-TARGET_LIBRARIES=`find $INSTALLDIR_NATIVE/arm-none-eabi/lib -name \*.a`
-for target_lib in $TARGET_LIBRARIES ; do
-    arm-none-eabi-objcopy -R .comment -R .note -R .debug_info -R .debug_aranges -R .debug_pubnames -R .debug_pubtypes -R .debug_abbrev -R .debug_line -R .debug_str -R .debug_ranges -R .debug_loc $target_lib || true
-done
-
-TARGET_OBJECTS=`find $INSTALLDIR_NATIVE/arm-none-eabi/lib -name \*.o`
-for target_obj in $TARGET_OBJECTS ; do
-    arm-none-eabi-objcopy -R .comment -R .note -R .debug_info -R .debug_aranges -R .debug_pubnames -R .debug_pubtypes -R .debug_abbrev -R .debug_line -R .debug_str -R .debug_ranges -R .debug_loc $target_obj || true
-done
-
-TARGET_LIBRARIES=`find $INSTALLDIR_NATIVE/lib/gcc/arm-none-eabi/$GCC_VER -name \*.a`
-for target_lib in $TARGET_LIBRARIES ; do
-    arm-none-eabi-objcopy -R .comment -R .note -R .debug_info -R .debug_aranges -R .debug_pubnames -R .debug_pubtypes -R .debug_abbrev -R .debug_line -R .debug_str -R .debug_ranges -R .debug_loc $target_lib || true
-done
-
-TARGET_OBJECTS=`find $INSTALLDIR_NATIVE/lib/gcc/arm-none-eabi/$GCC_VER -name \*.o`
-for target_obj in $TARGET_OBJECTS ; do
-    arm-none-eabi-objcopy -R .comment -R .note -R .debug_info -R .debug_aranges -R .debug_pubnames -R .debug_pubtypes -R .debug_abbrev -R .debug_line -R .debug_str -R .debug_ranges -R .debug_loc $target_obj || true
-done
-restoreenv
 
