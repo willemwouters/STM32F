@@ -27,12 +27,6 @@ void __aeabi_memset(void *dest, char c, size_t n)
 }
 
 
-
-
-uint16_t I2C_Read_Flag_Status(I2C_TypeDef* I2Cx, uint8_t I2C_Register) {
-
-}
-
 void __heap_base() { }
 void __heap_limit() { }
 void __microlib_freelist() { }
